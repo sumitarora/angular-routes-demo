@@ -11,6 +11,18 @@ const routes: Routes = [
   { path: 'route-one', component: RouteOneComponent },
   { path: 'route-two', component: RouteTwoComponent },
   { path: 'route-three', component: RouteThreeComponent },
+  {
+    path: 'feature-one',
+    loadChildren: () => import('./features/feature-one/feature-one.module').then(m => m.FeatureOneModule)
+  },
+  {
+    path: 'feature-two',
+    loadChildren: () => import('./features/feature-two/feature-two.module').then(m => m.FeatureTwoModule)
+  },
+  {
+    path: 'feature-three',
+    loadChildren: () => import('./features/feature-three/feature-three.module').then(m => m.FeatureThreeModule)
+  }
 ];
 
 @NgModule({
