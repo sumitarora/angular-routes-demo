@@ -1,9 +1,20 @@
-<div>
-  <a routerLink="">Home</a>
-  <a routerLink="/route-one">Route One</a>
-  <a routerLink="/route-two">Route Two</a>
-  <a routerLink="/route-three">Route Three</a>
-  <a routerLink="/feature-one">Feature One</a>
-  <a routerLink="/feature-two">Feature Two</a>
-  <a routerLink="/feature-three">Feature Three</a>
+<div class="flex flex-col h-full border-2 border-dashed border-red-500
+  bg-yellow-300">
+  <a [routerLink]="[{ outlets: { 'sidebar': ['component-aux'] } }]">Component
+    Aux</a>
+  <div *ngFor="let item of navigation">
+    <a class="p-3 hover:underline hover:text-red-600"
+      [queryParams]="item?.queryParmas"
+      [routerLink]="item.routerLink">{{item.title}}</a>
+    <div *ngFor="let child of item.children" class="pl-4">
+      <a class="p-3 hover:underline hover:text-red-600"
+        [queryParams]="child?.queryParmas"
+        [routerLink]="child.routerLink">- {{child.title}}</a>
+      <div *ngFor="let grandChild of child.children" class="pl-4">
+        <a class="p-3 hover:underline hover:text-red-600"
+          [queryParams]="grandChild?.queryParmas"
+          [routerLink]="grandChild.routerLink">- {{grandChild.title}}</a>
+      </div>
+    </div>
+  </div>
 </div>

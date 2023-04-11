@@ -8,6 +8,7 @@ import { RouteOneComponent } from './components/route-one/route-one.component';
 import { RouteTwoComponent } from './components/route-two/route-two.component';
 import { RouteThreeComponent } from './components/route-three/route-three.component';
 import { HomeComponent } from './components/home/home.component';
+import ComponentAux from './components/aux.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HomeComponent } from './components/home/home.component';
     RouteOneComponent,
     RouteTwoComponent,
     RouteThreeComponent,
-    HomeComponent
+    HomeComponent,
+    ComponentAux
   ],
   imports: [
     BrowserModule,
