@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-feature-three',
-  template: ` <h1 class="text-6xl text-center">feature three works!</h1> `,
+    selector: 'app-feature-three',
+    template: ` <h1 class="text-6xl text-center">feature three works!</h1> `,
+    standalone: false
 })
 export class FeatureThreeComponent implements OnInit {
   constructor() {}
