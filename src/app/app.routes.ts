@@ -46,8 +46,13 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'feature',
+    path: 'feature/main',
     loadChildren: () =>
-      import('./feature/feature.module').then((m) => m.FeatureModule),
+      import('./feature/main/feature.module').then((m) => m.FeatureModule),
+  },
+  {
+    path: 'feature/team',
+    loadChildren: () =>
+      import('./feature/team/team.module').then((m) => m.TeamModule),
   },
 ];
