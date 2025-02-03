@@ -3,6 +3,7 @@ import {
   ActivatedRoute,
   ActivatedRouteSnapshot,
   CanActivateFn,
+  CanDeactivateFn,
   CanMatchFn,
   Route,
   Router,
@@ -12,6 +13,17 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { PermissionsService } from './services';
+
+export const canDeactivateTeam: CanDeactivateFn<any> = (
+  component: any,
+  currentRoute: ActivatedRouteSnapshot,
+  currentState: RouterStateSnapshot,
+  nextState?: RouterStateSnapshot
+) => {
+  return (
+    (component && component.canDeactivate && component.canDeactivate()) || false
+  );
+};
 
 export const activateGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
