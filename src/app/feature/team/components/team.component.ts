@@ -5,14 +5,24 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-feature-team',
   template: `
-    <h1 class="text-6xl text-center pb-12">feature team works!</h1>
     <div
-      class="flex items-center border-2 border-dashed border-gray-600 p-2 mb-6"
+      class="flex flex-col items-center border-2 border-dashed border-gray-600 p-2"
     >
-      <h1>Route Params:&nbsp;&nbsp;</h1>
-      <pre class="p-2 bg-gray-100">{{ routeParams | json }}</pre>
+      <h1 class="text-4xl text-center py-8 border-b-2 w-full border-gray-300">
+        feature team works!
+      </h1>
+      <div class="py-8">
+        <div
+          class="flex items-center border-2 border-dashed border-gray-600 p-4 mb-6"
+        >
+          <h1>Route Params:&nbsp;&nbsp;</h1>
+          <pre class="p-4 bg-white rounded-sm shadow-md">{{
+            routeParams | json
+          }}</pre>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
     </div>
-    <router-outlet></router-outlet>
   `,
   imports: [CommonModule, RouterModule],
   standalone: true,

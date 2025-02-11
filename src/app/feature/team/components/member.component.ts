@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-feature-team-member',
   template: `
-    <h1 class="text-6xl text-center pb-12">feature team member works!</h1>
+    <h1 class="text-4xl text-center pb-12">feature team member works!</h1>
   `,
   standalone: true,
 })

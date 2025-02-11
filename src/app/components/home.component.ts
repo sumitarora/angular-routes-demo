@@ -3,26 +3,33 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-    selector: 'app-home',
-    imports: [CommonModule],
-    template: `<h1 class="text-6xl text-center pb-4">{{ title }}</h1>
-    <div class="flex items-center border-2 border-dashed border-gray-600 p-2">
+  selector: 'app-home',
+  imports: [CommonModule],
+  template: ` <div
+      class="flex items-center border-2 border-dashed border-gray-600 p-2"
+    >
       <h1>Route Data:&nbsp;&nbsp;</h1>
-      <pre class="p-2 bg-gray-100">{{ routeData | json }}</pre>
+      <pre class="p-4 bg-white rounded-sm shadow-md">{{
+        routeData | json
+      }}</pre>
     </div>
     <br />
     <div class="flex items-center border-2 border-dashed border-gray-600 p-2">
       <h1>Route Params:&nbsp;&nbsp;</h1>
-      <pre class="p-2 bg-gray-100">{{ routeParams | json }}</pre>
+      <pre class="p-4 bg-white rounded-sm shadow-md">{{
+        routeParams | json
+      }}</pre>
     </div>
     <br />
     <div
       class="flex items-center border-2 border-dashed border-gray-600
-      p-2"
+      p-4"
     >
       <h1>Query Params:&nbsp;&nbsp;</h1>
-      <pre class="p-2 bg-gray-100">{{ queryParams | json }}</pre>
-    </div>`
+      <pre class="p-4 bg-white shadow-md rounded-sm">{{
+        queryParams | json
+      }}</pre>
+    </div>`,
 })
 export class HomeComponent implements OnInit {
   routeData: any;
