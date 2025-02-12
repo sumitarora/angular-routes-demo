@@ -14,6 +14,15 @@ import {
 import { Observable } from 'rxjs';
 import { PermissionsService } from './services';
 
+export const canDeactivateMemberAndMatch: CanDeactivateFn<any> = (
+  component: any,
+  currentRoute: ActivatedRouteSnapshot,
+  currentState: RouterStateSnapshot,
+  nextState?: RouterStateSnapshot
+) => {
+  return true;
+};
+
 export const canDeactivateTeam: CanDeactivateFn<any> = (
   component: any,
   currentRoute: ActivatedRouteSnapshot,

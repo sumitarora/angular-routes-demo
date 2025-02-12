@@ -3,6 +3,7 @@ import { provideRouter, RouterModule, Routes } from '@angular/router';
 import { FeatureTeamComponent } from './components/team.component';
 import {
   canActivateTeam,
+  canDeactivateMemberAndMatch,
   canDeactivateTeam,
   canMatchTeam,
 } from '../../common/guards';
@@ -32,11 +33,13 @@ const routes: Routes = [
         path: 'member/:teamId',
         component: FeatureTeamMemberComponent,
         canActivate: [canActivateTeam],
+        canDeactivate: [canDeactivateMemberAndMatch],
       },
       {
         path: 'match/:teamId',
         component: FeatureTeamMatchComponent,
         canMatch: [canMatchTeam],
+        canDeactivate: [canDeactivateMemberAndMatch],
       },
       {
         path: 'admin',
