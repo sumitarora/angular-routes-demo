@@ -24,12 +24,13 @@ jobs:
         cache: 'npm'
     - run: npm ci
     # - run: npm run lint
-    - run: npm run build --if-present
+    - run: npm run build:dev --if-present
+    - run: ls -l -a
     # - run: npm test
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: ${{ env.BUILD_PATH }}/dist/angular-routes-demo
+        path: ./dist/angular-routes-demo/browser
 
   # Deploy job
   deploy:
@@ -53,6 +54,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4 # or specific "vX.X.X" version tag for this action
-        with:
-          artifact_name: ${{ env.BUILD_PATH }}/dist/angular-routes-demo
-          token: ${{ secrets.GITHUB_TOKEN }}
+        # with:
+        #   artifact_name: ./dist/angular-routes-demo
+        #   token: ${{ secrets.GITHUB_TOKEN }}
