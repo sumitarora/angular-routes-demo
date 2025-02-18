@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { provideRouter, RouterModule, Routes } from '@angular/router';
 import { FeatureTeamComponent } from './components/team.component';
 import {
+  canActivateAnotherGuard,
+  canActivateChildGuard,
   canActivateTeam,
   canDeactivateMemberAndMatch,
   canDeactivateTeam,
@@ -24,6 +26,7 @@ const routes: Routes = [
   {
     path: '',
     component: FeatureTeamComponent,
+    canActivateChild: [canActivateChildGuard],
     children: [
       {
         path: 'forbidden',
@@ -32,7 +35,7 @@ const routes: Routes = [
       {
         path: 'member/:teamId',
         component: FeatureTeamMemberComponent,
-        canActivate: [canActivateTeam],
+        canActivate: [canActivateTeam, canActivateAnotherGuard],
         canDeactivate: [canDeactivateMemberAndMatch],
       },
       {

@@ -5,6 +5,8 @@ import {
   CanActivateFn,
   CanDeactivateFn,
   CanMatchFn,
+  GuardResult,
+  MaybeAsync,
   Route,
   Router,
   RouterStateSnapshot,
@@ -34,7 +36,14 @@ export const canDeactivateTeam: CanDeactivateFn<any> = (
   );
 };
 
-export const activateGuard: CanActivateFn = (
+export const canActivateChildGuard: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): MaybeAsync<GuardResult> => {
+  return true;
+};
+
+export const canActivateGuard: CanActivateFn = (
   route: ActivatedRouteSnapshot,
   state: RouterStateSnapshot
 ):
@@ -42,6 +51,13 @@ export const activateGuard: CanActivateFn = (
   | Promise<boolean | UrlTree>
   | boolean
   | UrlTree => {
+  return true;
+};
+
+export const canActivateAnotherGuard: CanActivateFn = (
+  route: ActivatedRouteSnapshot,
+  state: RouterStateSnapshot
+): MaybeAsync<GuardResult> => {
   return true;
 };
 

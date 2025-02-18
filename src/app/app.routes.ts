@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './components/home.component';
 import { Service1, Service2, Service3, Service4 } from './common/services';
-import { activateGuard } from './common/guards';
 import RoutesAuxComponent from './components/aux-route.component';
+import { canActivateGuard } from './common/guards';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +20,7 @@ export const routes: Routes = [
   {
     path: 'route-guard',
     component: HomeComponent,
-    canActivate: [activateGuard],
+    canActivate: [canActivateGuard],
   },
   { path: 'component-aux', component: RoutesAuxComponent, outlet: 'sidebar' },
   {
